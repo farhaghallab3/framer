@@ -722,158 +722,129 @@
         }
         /* Work Section */
 .work-section {
-    padding: 50px 30px;
+    padding: 80px 20px;
     background-color: #0a0a0a;
-    color: #fff;
-    position: relative;
-    overflow: none;
-}
-.work-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 80px 100%; /* spacing between lines */
-    pointer-events: none; /* so it doesn’t block clicks */
-}
-.work-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 60px;
-}
-.work-header p {
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999;
-}
-.work-header h2 {
-    font-size: 52px;
-    font-weight: 700;
-}
-.work-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-.work-card {
-    text-decoration: none;
-    color: #fff;
-    display: block;
-    overflow: hidden;
-    position: relative;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-.work-card:hover {
-    transform: translateY(-5px);
-}
-.work-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
-}
-.work-card:hover img {
-    transform: scale(1.05);
-}
-.work-card-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
-}
-.work-card-content h3 {
-    font-size: 24px;
-    margin-bottom: 5px;
-}
-.work-card-content p {
-    font-size: 14px;
-    color: #ccc;
-    line-height: 1.4;
+    background-image: linear-gradient(90deg, transparent, transparent 1px, #ffffff 1px, #000000 2px);
+    background-size: calc(100% / 6) ;
+    /* لـ6 أعمدة، كل عمود يمثل 1/6 من العرض */
+    background-repeat: repeat-x; /* للتأكد من تكرارها أفقياً فقط */
 }
 
-@media (max-width: 768px) {
+
     .work-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+      display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 60px;
     }
-    .work-grid {
-        grid-template-columns: 1fr;
+
+    .work-header p {
+      text-transform: uppercase;
+            font-size: 14px;
+            color: #999;
     }
+.work-header .subhead {
+  margin: 15px 0;
+  font-size: 2rem;   
+  font-weight: 600;  
+  color: #fff;       
+  line-height: 1.3;
+}
+
+
+
     .work-header h2 {
-        font-size: 36px;
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.2;
+            max-width: 600px;
     }
-}
 
-/* scroll */
-.stack-wrapper {
- position: relative;
- height: 200vh;
- background: transparent;
-}
+    /* === Stack === */
+    .stack-wrapper {
+      position: relative;
+      height: 500vh; 
+      perspective: 1200px;
+    }
 
-.card-stack {
-position: sticky;
- top: 0;
- height: 100vh;
- display: flex;
- justify-content: center;
- align-items: center;
- perspective: 1200px;
-}
+    .card-stack {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.card {
- position: absolute;
- width: 80%;
- max-width: 1300px;
- height: 480px;
- color: #fff;
- font-weight: bold;
- display: flex;
- flex-direction: column;
- padding: 20px;
- border-radius: 20px;
-}
-/* New styles for the card content */
-.card .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    font-size: 1rem;
-}
-.card .card-header p {
-    margin: 0;
-}
-.card h3 {
-    font-size: 2.5rem;
-    margin: 10px 0;
-}
-.card img {
-    width: 100%;
-    height: 60%;
-    margin-bottom: 10px;
-    margin-top: auto;
-    display: block;
-}
+    .card {
+      position: absolute;
+      width: 75%;
+      max-width: 1000px;
+      height: 65vh;
+      border-radius: 20px;
+      padding: 30px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      transform: translateY(200px) scale(0.9) rotateX(20deg);
+      opacity: 0.6;
+      transition: transform 0.8s ease, opacity 0.8s ease;
+      transform-style: preserve-3d;
+      overflow: hidden;
+    }
 
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
 
+    .card h3 {
+      font-size: 2rem;
+      margin: 10px 0;
+    }
 
-.orange { background: orange; z-index: 5; }
-.black { background: black; z-index: 4; }
-.yellow { background: gold; color: #222; z-index: 3; }
-.green { background: #2ecc71; z-index: 2; }
-.purple { background: purple; z-index: 1; }
+    .card img {
+      width: 100%;
+      height: 60%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
 
+    .card.active {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotateX(0deg);
+    }
+
+    .card.past {
+      opacity: 0.8;
+      transform: translateY(-40px) scale(0.95) rotateX(-10deg);
+    }
+
+    /* Colors */
+    .orange { background:#ff5722; }
+    .black  { background:#111; }
+    .yellow { background:gold; color:#222; }
+    .green  { background:#2ecc71; }
+    .purple { background:#6a0dad; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .card {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+      }
+      .card h3 {
+        font-size: 1.6rem;
+      }
+    }
 /* Service & Pricing Section */
 .service-pricing-section {
     padding: 100px 40px;
@@ -1528,57 +1499,44 @@ position: sticky;
     </div>
 </div>
    
-    <div class="work-section">
-        <div class="work-header">
-            <p>/OUR WORK/</p>
-            <h2>Selected work.</h2>
-        </div>
-        
-        <div class="stack-wrapper">
-            <div class="card-stack">
-                <div class="card orange">
-                    <div class="card-header">
-                        <p>2023</p>
-                        <p>Personal Project</p>
-                    </div>
-                    <h3>bizz buzz</h3>
-                    <img src="https://picsum.photos/1200/600" alt="bizz buzz" />
-                </div>
-                <div class="card black">
-                    <div class="card-header">
-                        <p>2023</p>
-                        <p>Branding and Identity</p>
-                    </div>
-                    <h3 style="color: white;">aquaflow</h3>
-                    <img src="https://picsum.photos/1200/600" alt="aquaflow" />
-                </div>
-                <div class="card yellow">
-                    <div class="card-header">
-                        <p>2023</p>
-                        <p>UI/UX</p>
-                    </div>
-                    <h3 style="color: #222;">snackify</h3>
-                    <img src="https://picsum.photos/1200/600" alt="snackify" />
-                </div>
-                <div class="card green">
-                    <div class="card-header">
-                        <p>2023</p>
-                        <p>Product Design</p>
-                    </div>
-                    <h3>zengo</h3>
-                    <img src="https://picsum.photos/1200/600" alt="zengo" />
-                </div>
-                <div class="card purple">
-                    <div class="card-header">
-                        <p>2023</p>
-                        <p>Web Development</p>
-                    </div>
-                    <h3>softify</h3>
-                    <img src="https://picsum.photos/1200/600" alt="softify" />
-                </div>
-            </div>
-        </div>
+  <div class="work-section">
+    <div class="work-header">
+      <p>/OUR WORK/</p>
+      <p class="subhead">a product design partner with focus on<br>no-code websites</p>
+    
     </div>
+
+    <div class="stack-wrapper">
+      <div class="card-stack">
+        <div class="card orange">
+          <div class="card-header"><p>2023</p><p>Personal Project</p></div>
+          <h3>bizz buzz</h3>
+          <img src="https://picsum.photos/1200/600" alt="bizz buzz" />
+        </div>
+        <div class="card black">
+          <div class="card-header"><p>2023</p><p>Branding and Identity</p></div>
+          <h3 style="color:white;">aquaflow</h3>
+          <img src="https://picsum.photos/1200/600" alt="aquaflow" />
+        </div>
+        <div class="card yellow">
+          <div class="card-header"><p>2023</p><p>UI/UX</p></div>
+          <h3 style="color:#222;">snackify</h3>
+          <img src="https://picsum.photos/1200/600" alt="snackify" />
+        </div>
+        <div class="card green">
+          <div class="card-header"><p>2023</p><p>Product Design</p></div>
+          <h3>zengo</h3>
+          <img src="https://picsum.photos/1200/600" alt="zengo" />
+        </div>
+        <div class="card purple">
+          <div class="card-header"><p>2023</p><p>Web Development</p></div>
+          <h3>softify</h3>
+          <img src="https://picsum.photos/1200/600" alt="softify" />
+        </div>
+      </div>
+    </div>
+  </div>
+
 
     <div id="pricing" class="service-pricing-section">
     <div class="service-pricing-header">
@@ -1799,87 +1757,43 @@ serviceItems.forEach(item => {
     });
 });
 
-        // --- GSAP Scroll Logic for Cards ---
-        gsap.registerPlugin(ScrollTrigger);
 
-        const cards = gsap.utils.toArray('.card');
-        const stackWrapper = document.querySelector('.stack-wrapper');
 
-        // Set initial positions and scale for the cards
-        gsap.set(cards, {
-            y: (i) => i * 15,
-            scale: (i) => 1 - (i * 0.05),
-            transformOrigin: '50% bottom'
-        });
+        document.addEventListener("scroll", () => {
+      const wrapper = document.querySelector('.stack-wrapper');
+      const cards = document.querySelectorAll('.card');
+      const total = cards.length;
+      const progress = (window.scrollY - wrapper.offsetTop) / (wrapper.scrollHeight - window.innerHeight);
 
-        // Create the single timeline for the entire animation
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: stackWrapper,
-                pin: true,
-                start: "top top",
-                end: `+=${cards.length * window.innerHeight * 0.5}`,
-                scrub: 1,
-            }
-        });
+      const index = Math.min(total - 1, Math.floor(progress * total));
 
-        cards.forEach((card, i) => {
-            const nextCard = cards[i + 1];
-            if (!nextCard) return;
+      cards.forEach((card, i) => {
+        if (i < index) {
+          card.classList.add('past');
+          card.classList.remove('active');
+          card.style.zIndex = i;
+        } else if (i === index) {
+          card.classList.add('active');
+          card.classList.remove('past');
+          card.style.zIndex = total;
+        } else {
+          card.classList.remove('active','past');
+          card.style.zIndex = -i;
+        }
+      });
+    });
 
-            // Animate the current card away and the next one into place
-            tl.to(card, {
-                y: -window.innerHeight * 0.5,
-                opacity: 0,
-                scale: 0.9,
-                ease: "power2.inOut"
-            }, `card-${i}-start`)
-            .fromTo(nextCard, {
-                y: window.innerHeight * 0.5,
-                opacity: 0,
-                scale: 0.9
-            }, {
-                y: 0,
-                opacity: 1,
-                scale: 1,
-                ease: "power2.inOut"
-            }, `card-${i}-start`);
-        });
+      
+
+    
         document.addEventListener("DOMContentLoaded", ()=>{
   document.querySelector(".footer").style.opacity = 1;
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const stackWrapper = document.querySelector('.stack-wrapper');
-    const cards = document.querySelectorAll('.card');
 
-    window.addEventListener('scroll', () => {
-        // Calculate the scroll progress within the stack-wrapper
-        const scrollProgress = (window.scrollY - stackWrapper.offsetTop) / (stackWrapper.scrollHeight - window.innerHeight);
+    
 
-        cards.forEach((card, index) => {
-            // This multiplier creates a staggered effect
-            const offset = (index) * 0.1;
-            const cardProgress = Math.min(1, Math.max(0, scrollProgress - offset));
-
-            // Move the card up as we scroll
-            const translateY = -cardProgress * 100;
-
-            // Scale the card down slightly as it moves away
-            const scale = 1 - cardProgress * 0.05;
-
-            // Rotate the card slightly for a 3D effect
-            const rotateX = cardProgress * 5;
-
-            // Change the z-index to ensure correct layering
-            const zIndex = cards.length - index;
-
-            // Apply the transformations and z-index
-            card.style.transform = `translateY(${translateY}px) scale(${scale}) rotateX(${rotateX}deg)`;
-            card.style.zIndex = zIndex;
-        });
-    });
-});
+  
     </script>
 </body>
 </html>
